@@ -1,0 +1,190 @@
+{
+  "dataset": "data/dataset_null.npz",
+  "dataset_config": {
+    "n_samples": 6000,
+    "bands": [
+      "low",
+      "mid"
+    ],
+    "seed": 999,
+    "benign_lesion_prob": 1.0,
+    "jitter_std": 0.1,
+    "hydration_std": 0.08,
+    "contrast_scale": 0.0,
+    "points_per_band": {
+      "low": 301,
+      "mid": 301
+    },
+    "model": "1D layered, plane wave, normal incidence"
+  },
+  "noise_config": {
+    "snr_db": 30.0,
+    "mag_gain_std": 0.02,
+    "mag_drift_std": 0.01,
+    "phase_err_deg": 5.0,
+    "phase_noise_frac": 0.4,
+    "phase_drift_frac": 0.917,
+    "delay_err_frac": 0.7
+  },
+  "band_restriction": {
+    "band": "both",
+    "fmin_hz": null,
+    "fmax_hz": null,
+    "f_min_used_hz": 2000000000.0,
+    "f_max_used_hz": 26000000000.0,
+    "n_points": 602
+  },
+  "seed": 20260801,
+  "k": 5,
+  "feature_sets": {
+    "A": "Re(S11), Im(S11) per frequency point",
+    "B": "|S11| only (scalar detector front end)",
+    "D": "|S11| plus engineered scalars (resonances, notch depths, band-averaged loss)"
+  },
+  "scores": {
+    "rf": {
+      "A": {
+        "accuracy": 0.49716666666666665,
+        "sensitivity": 0.49033333333333334,
+        "specificity": 0.504,
+        "roc_auc": 0.4996520555555556,
+        "specificity_at_95_sensitivity": 0.05366666666666664,
+        "threshold_at_95_sensitivity": 0.41166666666666674,
+        "confusion_matrix": {
+          "tn": 1512,
+          "fp": 1488,
+          "fn": 1529,
+          "tp": 1471
+        },
+        "n": 6000,
+        "model": "rf",
+        "k": 5,
+        "seed": 20260801,
+        "fold_accuracy_mean": 0.49716666666666665,
+        "fold_accuracy_std": 0.014313940369055927,
+        "fit_seconds": 44.9
+      },
+      "B": {
+        "accuracy": 0.5016666666666667,
+        "sensitivity": 0.5166666666666667,
+        "specificity": 0.4866666666666667,
+        "roc_auc": 0.5013967222222222,
+        "specificity_at_95_sensitivity": 0.04833333333333334,
+        "threshold_at_95_sensitivity": 0.41655555555555557,
+        "confusion_matrix": {
+          "tn": 1460,
+          "fp": 1540,
+          "fn": 1450,
+          "tp": 1550
+        },
+        "n": 6000,
+        "model": "rf",
+        "k": 5,
+        "seed": 20260801,
+        "fold_accuracy_mean": 0.5016666666666667,
+        "fold_accuracy_std": 0.012560962454277833,
+        "fit_seconds": 42.8
+      },
+      "D": {
+        "accuracy": 0.49683333333333335,
+        "sensitivity": 0.5106666666666667,
+        "specificity": 0.483,
+        "roc_auc": 0.49697261111111113,
+        "specificity_at_95_sensitivity": 0.056333333333333346,
+        "threshold_at_95_sensitivity": 0.4191111111111111,
+        "confusion_matrix": {
+          "tn": 1449,
+          "fp": 1551,
+          "fn": 1468,
+          "tp": 1532
+        },
+        "n": 6000,
+        "model": "rf",
+        "k": 5,
+        "seed": 20260801,
+        "fold_accuracy_mean": 0.49683333333333335,
+        "fold_accuracy_std": 0.005661762583821012,
+        "fit_seconds": 35.7
+      }
+    }
+  },
+  "leakage_audit": {
+    "meta_keys": [
+      "has_inclusion",
+      "hydration",
+      "lesion_thickness",
+      "lesion_top_depth",
+      "t_coupling_gap",
+      "t_dermis",
+      "t_epidermis",
+      "t_hypodermis",
+      "t_stratum_corneum",
+      "t_total"
+    ],
+    "stack_geometry": {
+      "accuracy": 0.4831666666666667,
+      "sensitivity": 0.484,
+      "specificity": 0.48233333333333334,
+      "roc_auc": 0.4824371666666667,
+      "specificity_at_95_sensitivity": 0.041000000000000036,
+      "threshold_at_95_sensitivity": 0.34708730158730167,
+      "confusion_matrix": {
+        "tn": 1447,
+        "fp": 1553,
+        "fn": 1548,
+        "tp": 1452
+      },
+      "n": 6000,
+      "model": "rf",
+      "k": 5,
+      "seed": 20260801,
+      "fold_accuracy_mean": 0.4831666666666667,
+      "fold_accuracy_std": 0.011382247385975913,
+      "fit_seconds": 4.0,
+      "columns": [
+        "hydration",
+        "t_coupling_gap",
+        "t_dermis",
+        "t_epidermis",
+        "t_hypodermis",
+        "t_stratum_corneum",
+        "t_total"
+      ],
+      "expected_auc": 0.5,
+      "is_leak": false
+    },
+    "lesion_geometry_given_inclusion": {
+      "accuracy": 0.49816666666666665,
+      "sensitivity": 0.49366666666666664,
+      "specificity": 0.5026666666666667,
+      "roc_auc": 0.49556616666666675,
+      "specificity_at_95_sensitivity": 0.04633333333333334,
+      "threshold_at_95_sensitivity": 0.20439682539682538,
+      "confusion_matrix": {
+        "tn": 1508,
+        "fp": 1492,
+        "fn": 1519,
+        "tp": 1481
+      },
+      "n": 6000,
+      "model": "rf",
+      "k": 5,
+      "seed": 20260801,
+      "fold_accuracy_mean": 0.49816666666666676,
+      "fold_accuracy_std": 0.016502525059315418,
+      "fit_seconds": 3.1,
+      "columns": [
+        "lesion_top_depth",
+        "lesion_thickness"
+      ],
+      "expected_auc": 0.5,
+      "is_leak": false
+    },
+    "has_inclusion_design_invariant": {
+      "roc_auc": 0.5,
+      "expected_auc": 0.5,
+      "ok": true,
+      "note": "unobservable variable; predictive by design, cannot inflate the S11 scores"
+    }
+  }
+}

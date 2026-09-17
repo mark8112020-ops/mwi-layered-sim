@@ -1,0 +1,10 @@
+# Pinned to versions that still support Python 3.8 (what this machine has).
+# On a newer interpreter any recent version of these works; drop the upper bounds.
+numpy<1.25
+scipy<1.11
+scikit-learn<1.4
+xgboost<2.1
+pandas<2.1
+matplotlib<3.8
+pyarrow
+pyyaml

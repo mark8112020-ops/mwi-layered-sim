@@ -1,0 +1,111 @@
+{
+  "dataset": "data/dataset.npz",
+  "dataset_config": {
+    "n_samples": 12000,
+    "bands": [
+      "low",
+      "mid"
+    ],
+    "seed": 20260801,
+    "benign_lesion_prob": 0.5,
+    "jitter_std": 0.1,
+    "hydration_std": 0.08,
+    "contrast_scale": 1.0,
+    "points_per_band": {
+      "low": 301,
+      "mid": 301
+    },
+    "model": "1D layered, plane wave, normal incidence"
+  },
+  "noise_config": {
+    "snr_db": 30.0,
+    "mag_gain_std": 0.02,
+    "mag_drift_std": 0.01,
+    "phase_err_deg": 5.0,
+    "phase_noise_frac": 0.4,
+    "phase_drift_frac": 0.917,
+    "delay_err_frac": 0.7
+  },
+  "band_restriction": {
+    "band": "low",
+    "fmin_hz": null,
+    "fmax_hz": null,
+    "f_min_used_hz": 2000000000.0,
+    "f_max_used_hz": 12000000000.0,
+    "n_points": 301
+  },
+  "seed": 20260801,
+  "k": 5,
+  "feature_sets": {
+    "A": "Re(S11), Im(S11) per frequency point",
+    "B": "|S11| only (scalar detector front end)",
+    "D": "|S11| plus engineered scalars (resonances, notch depths, band-averaged loss)"
+  },
+  "scores": {
+    "rf": {
+      "A": {
+        "accuracy": 0.5895,
+        "sensitivity": 0.6031666666666666,
+        "specificity": 0.5758333333333333,
+        "roc_auc": 0.6235861111111111,
+        "specificity_at_95_sensitivity": 0.11416666666666664,
+        "threshold_at_95_sensitivity": 0.3520555555555555,
+        "confusion_matrix": {
+          "tn": 3455,
+          "fp": 2545,
+          "fn": 2381,
+          "tp": 3619
+        },
+        "n": 12000,
+        "model": "rf",
+        "k": 5,
+        "seed": 20260801,
+        "fold_accuracy_mean": 0.5895,
+        "fold_accuracy_std": 0.01034273765606679,
+        "fit_seconds": 59.7
+      },
+      "B": {
+        "accuracy": 0.5785833333333333,
+        "sensitivity": 0.6048333333333333,
+        "specificity": 0.5523333333333333,
+        "roc_auc": 0.6139060555555556,
+        "specificity_at_95_sensitivity": 0.10099999999999998,
+        "threshold_at_95_sensitivity": 0.34468253968253976,
+        "confusion_matrix": {
+          "tn": 3314,
+          "fp": 2686,
+          "fn": 2371,
+          "tp": 3629
+        },
+        "n": 12000,
+        "model": "rf",
+        "k": 5,
+        "seed": 20260801,
+        "fold_accuracy_mean": 0.5785833333333332,
+        "fold_accuracy_std": 0.005461989869391309,
+        "fit_seconds": 43.5
+      },
+      "D": {
+        "accuracy": 0.5763333333333334,
+        "sensitivity": 0.5995,
+        "specificity": 0.5531666666666667,
+        "roc_auc": 0.6142701527777777,
+        "specificity_at_95_sensitivity": 0.11016666666666663,
+        "threshold_at_95_sensitivity": 0.3471904761904762,
+        "confusion_matrix": {
+          "tn": 3319,
+          "fp": 2681,
+          "fn": 2403,
+          "tp": 3597
+        },
+        "n": 12000,
+        "model": "rf",
+        "k": 5,
+        "seed": 20260801,
+        "fold_accuracy_mean": 0.5763333333333333,
+        "fold_accuracy_std": 0.008548879068821414,
+        "fit_seconds": 44.9
+      }
+    }
+  }
+}
