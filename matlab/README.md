@@ -29,12 +29,11 @@ includes it, via Home > Add-Ons), the ML half can be ported next.
 
 ## Status
 
-This port mirrors the Python line for line and uses the same tolerances, but **it has
-not been run yet**. MATLAB could not be launched from the command line on this machine.
-The first time you open it, run `validate_model` and check it prints
-`ALL CHECKS PASSED`. The anchor table should match `../python/tissue_params.py`, with
-skin values within 0.1% and a documented WARN on fat conductivity. If anything fails or
-errors, that's a porting bug. The Python version is the reference.
+Verified in MATLAB R2025b. `validate_model` prints `ALL CHECKS PASSED`, and the numbers
+match the Python version: identical anchor values (skin within 0.1%, documented WARN on
+fat conductivity), the same 26.45 mm dermis penetration depth at 2 GHz, and the same
+thin-layer convergence. `demo_physics` and `generate_dataset` run end to end, and the
+noise model hits its target phase error.
 
 Random numbers come from MATLAB's generator, so individual samples differ from Python's
 even with the same seed. Distributions and conclusions should match, but not
