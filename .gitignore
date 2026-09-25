@@ -7,3 +7,7 @@ __pycache__/
 
 # Datasets are regenerable from a seed in seconds; results/ is what gets committed.
 data/
+
+# MATLAB autosave
+*.asv
+*.m~
